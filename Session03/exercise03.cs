@@ -13,6 +13,7 @@ namespace NgocHan_CSLT.Session03
             ex03();
             ex04();
             ex05();
+            ex06();
         }
         static void ex01()
         {
@@ -309,6 +310,30 @@ namespace NgocHan_CSLT.Session03
                 Console.WriteLine($"Username tao tu dong: {username}");
                 Console.WriteLine($"Email cap phat: {email}");
             }
+        }
+
+        static void ex06()
+        {
+            Console.Write("Quang duong (km): ");
+            double quang_duong = Convert.ToDouble(Console.ReadLine());
+
+            Console.Write("Muc tieu hao (L/100km): ");
+            double tieu_hao = Convert.ToDouble(Console.ReadLine());
+
+            Console.Write("Gia xang (VND/Lit): ");
+            decimal gia_xang = Convert.ToDecimal(Console.ReadLine());
+
+            Console.Write("So nguoi di: ");
+            int so_nguoi = Convert.ToInt32(Console.ReadLine());
+
+            double tong_lit_xang = (quang_duong / 100) * tieu_hao;
+            decimal tong_chi_phi_xang = (decimal)tong_lit_xang * gia_xang;
+            decimal so_tien_ca_nhan = (decimal)tong_chi_phi_xang / so_nguoi;
+
+            Console.WriteLine($"Tong nhien lieu tieu thu: {tong_lit_xang:F2}");
+            Console.WriteLine($"Tong chi phi xang: {tong_chi_phi_xang:F2}");
+            Console.WriteLine($"Chi phi moi nguoi: {so_tien_ca_nhan:F2}");
+
         }
     }
 
