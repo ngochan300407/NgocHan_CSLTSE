@@ -17,6 +17,7 @@ namespace NgocHan_CSLT.Session03
             ex07();
             ex08();
             ex09();
+            ex10();
         }
         static void ex01()
         {
@@ -458,6 +459,130 @@ namespace NgocHan_CSLT.Session03
             Console.WriteLine($"Tien thue TNCN phai nop: {tncn:N0} VND");
             Console.WriteLine($"Luong Net thuc nhan: {Net_thuc_nhan:N0} VND");
 
+        }
+
+        enum VehicleType
+        {
+            Motorbike,
+            Car,
+            Truck
+        }
+
+        static void ex10()
+        {
+            Console.WriteLine("Chon loai xe:");
+            Console.WriteLine("1 - Motorbike");
+            Console.WriteLine("2 - Car");
+            Console.WriteLine("3 - Truck");
+
+            int choice = Convert.ToInt32(Console.ReadLine());
+
+            VehicleType vehicle;
+
+            switch (choice)
+            {
+                case 1:
+                    vehicle = VehicleType.Motorbike;
+                    break;
+
+                case 2:
+                    vehicle = VehicleType.Car;
+                    break;
+
+                case 3:
+                    vehicle = VehicleType.Truck;
+                    break;
+
+                default:
+                    Console.WriteLine("Loai xe khong hop le!");
+                    return;
+            }
+
+            Console.Write("Gio vao (yyyy-MM-dd HH:mm): ");
+            string? input_checkin = Console.ReadLine();
+
+            Console.Write("Gio ra (yyyy-MM-dd HH:mm): ");
+            string? input_checkout = Console.ReadLine();
+
+            DateTime checkin;
+            DateTime checkout;
+
+            bool checkin_hop_le = DateTime.TryParseExact(input_checkin,"yyyy-MM-dd HH:mm", null, System.Globalization.DateTimeStyles.None,out checkin);
+            bool checkout_hop_le = DateTime.TryParseExact(input_checkout,"yyyy-MM-dd HH:mm",null,System.Globalization.DateTimeStyles.None,out checkout);
+
+            if (!checkin_hop_le || !checkout_hop_le)
+            {
+                Console.WriteLine("Thoi gian nhap khong dung dinh dang!");
+                return;
+            }
+
+            if (checkout <= checkin)
+            {
+                Console.WriteLine("Gio ra phai lon hon gio vao!");
+                return;
+            }
+
+            TimeSpan thoi_gian_do = checkout - checkin;
+
+            double tong_gio = thoi_gian_do.TotalHours;
+
+            int gio_tinh_phi = (int)Math.Ceiling(tong_gio);
+
+            decimal phi_2_gio_dau = 0;
+            decimal phi_moi_gio_them = 0;
+
+            switch (vehicle)
+            {
+                case VehicleType.Motorbike:
+                    phi_2_gio_dau = 5000m;
+                    phi_moi_gio_them = 2000m;
+                    break;
+
+                case VehicleType.Car:
+                    phi_2_gio_dau = 20000m;
+                    phi_moi_gio_them = 10000m;
+                    break;
+
+                case VehicleType.Truck:
+                    phi_2_gio_dau = 50000m;
+                    phi_moi_gio_them = 25000m;
+                    break;
+            }
+
+            int gio_tiep_theo = 0;
+
+            if (gio_tinh_phi > 2)
+            {
+                gio_tiep_theo = gio_tinh_phi - 2;
+            }
+
+            decimal phi_gio_them = gio_tiep_theo * phi_moi_gio_them;
+
+            decimal phu_phi_qua_dem = 0;
+
+            if (checkin.Date != checkout.Date)
+            {
+                phu_phi_qua_dem = 30000m;
+            }
+
+            decimal tong_phi = phi_2_gio_dau + phi_gio_them + phu_phi_qua_dem;
+
+            Console.WriteLine("HOA DON GUI XE");
+
+            Console.WriteLine($"Tong thoi gian do: {tong_gio:F2} gio -> Tinh phi: {gio_tinh_phi} gio");
+            Console.WriteLine($"Phi 2 gio dau: {phi_2_gio_dau:N0} VND");
+
+            if (gio_tiep_theo > 0)
+            {
+                Console.WriteLine($"Phi {gio_tiep_theo} gio tiep theo: {phi_gio_them:N0} VND " + $"({phi_moi_gio_them:N0} x {gio_tiep_theo})");
+            }
+
+            if (phu_phi_qua_dem > 0)
+            {
+                Console.WriteLine($"Phu phi qua dem: {phu_phi_qua_dem:N0} VND");
+            }
+
+            Console.WriteLine($"TONG PHI DO XE: {tong_phi:N0} VND");
         }
     }
 }
