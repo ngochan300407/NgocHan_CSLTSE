@@ -12,6 +12,7 @@ namespace NgocHan_CSLT.Session03
             ex02();
             ex03();
             ex04();
+            ex05();
         }
         static void ex01()
         {
@@ -259,5 +260,57 @@ namespace NgocHan_CSLT.Session03
             Console.WriteLine($"Diem GPA Thang 4: {gpa:F1}");
             Console.WriteLine($"Xep Loai Hoc Luc: {xep_loai}");
         }
+
+        static void ex05()
+        {
+            Console.Write("Nhap ho ten tho:");
+            string? ho_va_ten = Console.ReadLine();
+
+            if (ho_va_ten != null)
+            {
+                ho_va_ten = ho_va_ten.Trim();
+
+                string[] ds_tu = ho_va_ten.Split(
+            ' ',
+            StringSplitOptions.RemoveEmptyEntries
+        );
+                for (int i = 0; i < ds_tu.Length; i++)
+                {
+                    ds_tu[i] = ds_tu[i].ToLower();
+
+                    ds_tu[i] = char.ToUpper(ds_tu[i][0]) + ds_tu[i].Substring(1);
+                }
+
+                string ho_ten_chuan = string.Join(" ", ds_tu);
+
+                string ho = ds_tu[0];
+                string ten = ds_tu[ds_tu.Length - 1];
+
+                string ten_dem = "";
+
+                for (int i = 1; i < ds_tu.Length - 1; i++)
+                {
+                    ten_dem += ds_tu[i] + " ";
+                }
+
+                ten_dem = ten_dem.Trim();
+
+                string username = ten.ToLower() + ".";
+
+                foreach (string tu in ds_tu)
+                {
+                    username += tu.ToLower();
+                }
+
+                string email = username + "@company.edu.vn";
+
+                Console.WriteLine($"Ho ten chuan hoa: {ho_ten_chuan}");
+                Console.WriteLine($"Ho: {ho} | Ten dem: {ten_dem} | Ten: {ten}");
+                Console.WriteLine($"Username tao tu dong: {username}");
+                Console.WriteLine($"Email cap phat: {email}");
+            }
+        }
     }
+
+    
 }
