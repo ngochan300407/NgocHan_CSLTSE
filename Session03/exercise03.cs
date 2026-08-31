@@ -10,6 +10,7 @@ namespace NgocHan_CSLT.Session03
         {
             ex01();
             ex02();
+            ex03();
         }
         static void ex01()
         {
@@ -105,6 +106,88 @@ namespace NgocHan_CSLT.Session03
             Console.WriteLine($"Chi so BMI cua ban: {BMI:F2}");
             Console.WriteLine($"Phan loai suc khoe: {phan_loai}");
             Console.WriteLine($"Khuyen dung: Can nang ly tuong cua ban nen tu {can_nang_toi_thieu:F2} kg den {can_nang_toi_da:F2} kg ");
+        }
+
+        enum CurrencyType
+        {
+            USD,
+            EUR,
+            JPY,
+            GBP
+        }
+        static void ex03()
+        {
+            Console.Write("So tien VND: ");
+            decimal so_tien = Convert.ToDecimal(Console.ReadLine());
+
+            Console.WriteLine("Chon ngoai te:");
+            Console.WriteLine("1 - USD");
+            Console.WriteLine("2 - EUR");
+            Console.WriteLine("3 - JPY");
+
+            int choice = Convert.ToInt32(Console.ReadLine());
+
+
+            CurrencyType currency;
+
+            switch (choice)
+            {
+                case 1:
+                    currency = CurrencyType.USD;
+                    break;
+
+                case 2:
+                    currency = CurrencyType.EUR;
+                    break;
+
+                case 3:
+                    currency = CurrencyType.JPY;
+                    break;
+
+                case 4:
+                    currency = CurrencyType.GBP;
+                    break;
+
+                default:
+                    Console.WriteLine("Lua chon khong hop le!");
+                    return;
+            }
+
+            decimal phi_dich_vu = so_tien * 0.005m;
+            decimal so_tien_thuc_te = so_tien - phi_dich_vu;
+            decimal ty_gia = 0;
+            string don_vi = "";
+
+            switch (currency)
+            {
+                case CurrencyType.USD:
+                    ty_gia = 25400;
+                    don_vi = "USD";
+                    break;
+
+                case CurrencyType.EUR:
+                    ty_gia = 27200;
+                    don_vi = "EUR";
+                    break;
+
+                case CurrencyType.JPY:
+                    ty_gia = 165;
+                    don_vi = "JPY";
+                    break;
+
+                case CurrencyType.GBP:
+                    ty_gia = 32100;
+                    don_vi = "GBP";
+                    break;
+            }
+
+            decimal so_tien_nhan_duoc = so_tien_thuc_te / ty_gia;
+
+            Console.WriteLine($"Phi dich vu (0.5%): {phi_dich_vu:N2} VND");
+            Console.WriteLine($"So tien VND tinh doi: {so_tien_thuc_te:N2} VND");
+            Console.WriteLine($"So tien {don_vi} nhan duoc: {so_tien_nhan_duoc:N2} {don_vi}"); 
+
+
         }
     }
 }
