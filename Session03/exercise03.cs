@@ -14,6 +14,7 @@ namespace NgocHan_CSLT.Session03
             ex04();
             ex05();
             ex06();
+            ex07();
         }
         static void ex01()
         {
@@ -23,12 +24,12 @@ namespace NgocHan_CSLT.Session03
             Console.Write("So dien moi: ");
             decimal chi_so_dien_moi = Convert.ToDecimal(Console.ReadLine());
 
-            decimal so_dien_tieu_thu = chi_so_dien_moi - chi_so_dien_cu; 
-            
-            if(so_dien_tieu_thu < 0)
-            
+            decimal so_dien_tieu_thu = chi_so_dien_moi - chi_so_dien_cu;
+
+            if (so_dien_tieu_thu < 0)
+
             {
-                Console.WriteLine("Chi so moi phai lon hon hoac bang chi so cu"); 
+                Console.WriteLine("Chi so moi phai lon hon hoac bang chi so cu");
                 return;
             }
 
@@ -54,7 +55,7 @@ namespace NgocHan_CSLT.Session03
                 tien_dien = 50 * 1806 + 50 * 1866 + 100 * 2167 + (so_dien_tieu_thu - 200) * 2729;
             }
 
-            else 
+            else
             {
                 tien_dien = 50 * 1806 + 50 * 1866 + 100 * 2167 + 100 * 2729 + (so_dien_tieu_thu - 300) * 3050;
             }
@@ -66,7 +67,7 @@ namespace NgocHan_CSLT.Session03
             Console.WriteLine($"Tien dien chua thue (VAT): {tien_dien:N0} VND");
             Console.WriteLine($"Tien thue (VAT): {tien_thue:N0} VND");
             Console.WriteLine($"Tong tien can thanh toan: {tong_tien_can_thanh_toan:N0} VND");
-            
+
 
         }
 
@@ -82,17 +83,17 @@ namespace NgocHan_CSLT.Session03
 
             string phan_loai;
 
-            if(BMI < 18.5)
+            if (BMI < 18.5)
             {
                 phan_loai = "Gay (Thieu can)";
             }
 
-            else if( BMI <= 23.0)
+            else if (BMI <= 23.0)
             {
                 phan_loai = "Binh thuong (Ly tuong)";
             }
 
-            else if( BMI <= 25.0)
+            else if (BMI <= 25.0)
             {
                 phan_loai = "Thua can (Tien beo phi) ";
 
@@ -100,7 +101,7 @@ namespace NgocHan_CSLT.Session03
 
             else
             {
-               phan_loai = "Beo phi";
+                phan_loai = "Beo phi";
             }
 
             double can_nang_toi_thieu = 18.5 * (chieu_cao * chieu_cao);
@@ -188,7 +189,7 @@ namespace NgocHan_CSLT.Session03
 
             Console.WriteLine($"Phi dich vu (0.5%): {phi_dich_vu:N2} VND");
             Console.WriteLine($"So tien VND tinh doi: {so_tien_thuc_te:N2} VND");
-            Console.WriteLine($"So tien {don_vi} nhan duoc: {so_tien_nhan_duoc:N2} {don_vi}"); 
+            Console.WriteLine($"So tien {don_vi} nhan duoc: {so_tien_nhan_duoc:N2} {don_vi}");
 
 
         }
@@ -228,21 +229,21 @@ namespace NgocHan_CSLT.Session03
                 xep_loai = "Xuat sac / Gioi";
             }
 
-            else if(score_avg >= 7.0)
+            else if (score_avg >= 7.0)
             {
                 grade = Diem.B;
                 gpa = 3.0;
                 xep_loai = "Kha";
             }
 
-            else if(score_avg >= 5.5)
+            else if (score_avg >= 5.5)
             {
                 grade = Diem.C;
                 gpa = 2.0;
                 xep_loai = "Trung binh";
             }
 
-            else if(score_avg >= 4.0)
+            else if (score_avg >= 4.0)
             {
                 grade = Diem.D;
                 gpa = 1.0;
@@ -271,10 +272,7 @@ namespace NgocHan_CSLT.Session03
             {
                 ho_va_ten = ho_va_ten.Trim();
 
-                string[] ds_tu = ho_va_ten.Split(
-            ' ',
-            StringSplitOptions.RemoveEmptyEntries
-        );
+                string[] ds_tu = ho_va_ten.Split(' ',StringSplitOptions.RemoveEmptyEntries );
                 for (int i = 0; i < ds_tu.Length; i++)
                 {
                     ds_tu[i] = ds_tu[i].ToLower();
@@ -335,7 +333,52 @@ namespace NgocHan_CSLT.Session03
             Console.WriteLine($"Chi phi moi nguoi: {so_tien_ca_nhan:F2}");
 
         }
+
+        static void ex07()
+        {
+            Console.Write("Nhap ngay sinh (dd/MM/yyyy): ");
+            string? input = Console.ReadLine();
+
+            DateTime ngay_sinh;
+
+            bool hop_le = DateTime.TryParseExact(input,"dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None,out ngay_sinh);
+
+            if (!hop_le)
+            {
+                Console.WriteLine("Ngay sinh khong dung dinh dang!");
+                return;
+            }
+
+            DateTime hom_nay = DateTime.Now.Date;
+
+            int tuoi = hom_nay.Year - ngay_sinh.Year;
+
+            if (hom_nay < ngay_sinh.AddYears(tuoi))
+            {
+                tuoi--;
+            }
+
+            TimeSpan thoi_gian_da_song = hom_nay - ngay_sinh;
+
+            int tong_so_ngay = (int)thoi_gian_da_song.TotalDays;
+
+            DateTime sinh_nhat_tiep_theo = new DateTime(hom_nay.Year, ngay_sinh.Month, ngay_sinh.Day);
+
+            if (sinh_nhat_tiep_theo < hom_nay)
+            {
+                sinh_nhat_tiep_theo = sinh_nhat_tiep_theo.AddYears(1);
+            }
+
+            TimeSpan thoi_gian_con_lai =sinh_nhat_tiep_theo - hom_nay;
+
+            int so_ngay_con_lai =(int)thoi_gian_con_lai.TotalDays;
+
+            Console.WriteLine($"Tuoi hien tai: {tuoi} tuoi");
+            Console.WriteLine($"Ban da song tong cong: {tong_so_ngay:N0} ngay");
+            Console.WriteLine($"So ngay con lai den sinh nhat: {so_ngay_con_lai} ngay");
+        }
     }
+}
 
     
-}
+
