@@ -16,6 +16,7 @@ namespace NgocHan_CSLT.Session03
             ex06();
             ex07();
             ex08();
+            ex09();
         }
         static void ex01()
         {
@@ -408,6 +409,54 @@ namespace NgocHan_CSLT.Session03
             Console.WriteLine($"Tong tien lai (lai don): {tien_lai_don:N2} VND");
             Console.WriteLine($"Tong tien lai (lai kep): {tien_lai_kep:N2} VND");
             Console.WriteLine($"Loi nhuan chenh lech: {chenh_lech:N2} VND {content}");
+
+        }
+
+        static void ex09()
+        {
+            Console.Write("Luong Gross: ");
+            double luong_gross = Convert.ToDouble(Console.ReadLine());
+
+            Console.Write("So nguoi phu thuoc: ");
+            int so_nguoi_phu_thuoc = Convert.ToInt32(Console.ReadLine());
+
+            decimal BHXH = 0.08m;
+            decimal BHYT = 0.015m;
+            decimal BHTN = 0.01m;
+            decimal Muc_ban_than = 11000000m;
+
+            decimal tong_tien_bao_hiem = BHXH + BHYT + BHTN;
+            decimal tong_giam_tru_bh = 0.105m * (decimal)luong_gross;
+            decimal thu_nhap_chiu_thue = (decimal)luong_gross - tong_giam_tru_bh - Muc_ban_than - (so_nguoi_phu_thuoc * 4400000m);
+
+            if(thu_nhap_chiu_thue <= 0)
+            {
+                thu_nhap_chiu_thue = 0;
+            }
+
+            decimal tncn = 0;
+            if (thu_nhap_chiu_thue <= 5000000m)
+            {
+                tncn = thu_nhap_chiu_thue * 0.05m;
+            }
+
+            else if (thu_nhap_chiu_thue <= 10000000m)
+            {
+                tncn = 5000000m * 0.05m + (thu_nhap_chiu_thue - 5000000m) * 0.1m;         
+            }
+
+
+            else if(thu_nhap_chiu_thue <= 18000000m)
+            {
+                tncn = 5000000m * 0.05m + 5000000m * 0.10m + (thu_nhap_chiu_thue - 10000000m) * 0.15m;
+            }
+
+            decimal Net_thuc_nhan = (decimal)luong_gross - tong_giam_tru_bh - tncn;
+
+            Console.WriteLine($"Giam tru bao hiem (10.5%): {tong_giam_tru_bh:N0} VND");
+            Console.WriteLine($"Thu nhap chiu thue: {thu_nhap_chiu_thue:N0} VND");
+            Console.WriteLine($"Tien thue TNCN phai nop: {tncn:N0} VND");
+            Console.WriteLine($"Luong Net thuc nhan: {Net_thuc_nhan:N0} VND");
 
         }
     }
