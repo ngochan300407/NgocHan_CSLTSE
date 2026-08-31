@@ -15,6 +15,7 @@ namespace NgocHan_CSLT.Session03
             ex05();
             ex06();
             ex07();
+            ex08();
         }
         static void ex01()
         {
@@ -376,6 +377,38 @@ namespace NgocHan_CSLT.Session03
             Console.WriteLine($"Tuoi hien tai: {tuoi} tuoi");
             Console.WriteLine($"Ban da song tong cong: {tong_so_ngay:N0} ngay");
             Console.WriteLine($"So ngay con lai den sinh nhat: {so_ngay_con_lai} ngay");
+        }
+
+        static void ex08()
+        {
+            Console.Write("So tien gui: ");
+            decimal so_tien_gui = Convert.ToDecimal(Console.ReadLine());
+
+            Console.Write("Lai suat nam: ");
+            double lai_suat_nam = Convert.ToDouble(Console.ReadLine());
+
+            Console.Write("Thoi gian gui (Thang): ");
+            int thoi_gian_gui = Convert.ToInt32(Console.ReadLine());
+
+            decimal tien_lai_don = so_tien_gui * (decimal)(lai_suat_nam / 100) *(decimal)(thoi_gian_gui / 12.0);
+            double tong_tien_lai_kep = (double)so_tien_gui * Math.Pow( 1 + (lai_suat_nam / 100) / 12, thoi_gian_gui);
+            decimal tien_lai_kep = (decimal)tong_tien_lai_kep - so_tien_gui;
+            decimal chenh_lech = tien_lai_kep - tien_lai_don;
+
+            string content;
+            if(chenh_lech > 0)
+            {
+                content = "Lai kep toi uu hon";
+            }
+            else
+            {
+                content = "Lai don toi uu hon";
+            }
+
+            Console.WriteLine($"Tong tien lai (lai don): {tien_lai_don:N2} VND");
+            Console.WriteLine($"Tong tien lai (lai kep): {tien_lai_kep:N2} VND");
+            Console.WriteLine($"Loi nhuan chenh lech: {chenh_lech:N2} VND {content}");
+
         }
     }
 }
