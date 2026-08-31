@@ -9,6 +9,7 @@ namespace NgocHan_CSLT.Session03
         public static void Main()
         {
             ex01();
+            ex02();
         }
         static void ex01()
         {
@@ -63,6 +64,47 @@ namespace NgocHan_CSLT.Session03
             Console.WriteLine($"Tong tien can thanh toan: {tong_tien_can_thanh_toan:N0} VND");
             
 
+        }
+
+        static void ex02()
+        {
+            Console.Write("Chieu cao (m): ");
+            double chieu_cao = Convert.ToDouble(Console.ReadLine());
+
+            Console.Write("Can nang (kg): ");
+            double can_nang = Convert.ToDouble(Console.ReadLine());
+
+            double BMI = can_nang / (chieu_cao * chieu_cao);
+
+            string phan_loai;
+
+            if(BMI < 18.5)
+            {
+                phan_loai = "Gay (Thieu can)";
+            }
+
+            else if( BMI <= 23.0)
+            {
+                phan_loai = "Binh thuong (Ly tuong)";
+            }
+
+            else if( BMI <= 25.0)
+            {
+                phan_loai = "Thua can (Tien beo phi) ";
+
+            }
+
+            else
+            {
+               phan_loai = "Beo phi";
+            }
+
+            double can_nang_toi_thieu = 18.5 * (chieu_cao * chieu_cao);
+            double can_nang_toi_da = 22.9 * (chieu_cao * chieu_cao);
+
+            Console.WriteLine($"Chi so BMI cua ban: {BMI:F2}");
+            Console.WriteLine($"Phan loai suc khoe: {phan_loai}");
+            Console.WriteLine($"Khuyen dung: Can nang ly tuong cua ban nen tu {can_nang_toi_thieu:F2} kg den {can_nang_toi_da:F2} kg ");
         }
     }
 }
