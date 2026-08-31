@@ -11,6 +11,7 @@ namespace NgocHan_CSLT.Session03
             ex01();
             ex02();
             ex03();
+            ex04();
         }
         static void ex01()
         {
@@ -188,6 +189,75 @@ namespace NgocHan_CSLT.Session03
             Console.WriteLine($"So tien {don_vi} nhan duoc: {so_tien_nhan_duoc:N2} {don_vi}"); 
 
 
+        }
+        enum Diem
+        {
+            A,
+            B,
+            C,
+            D,
+            F
+        }
+        static void ex04()
+        {
+            Console.Write("C# (4 TC): ");
+            double diem1 = Convert.ToDouble(Console.ReadLine());
+            int tc1 = 4;
+
+            Console.Write("Toan (3 TC): ");
+            double diem2 = Convert.ToDouble(Console.ReadLine());
+            int tc2 = 3;
+
+            Console.Write("Tieng Anh (2 TC): ");
+            double diem3 = Convert.ToDouble(Console.ReadLine());
+            int tc3 = 2;
+
+            double score_avg = (diem1 * tc1 + diem2 * tc2 + diem3 * tc3)
+                       / (tc1 + tc2 + tc3);
+
+            Diem grade;
+            double gpa;
+            string xep_loai;
+
+            if (score_avg >= 8.5)
+            {
+                grade = Diem.A;
+                gpa = 4.0;
+                xep_loai = "Xuat sac / Gioi";
+            }
+
+            else if(score_avg >= 7.0)
+            {
+                grade = Diem.B;
+                gpa = 3.0;
+                xep_loai = "Kha";
+            }
+
+            else if(score_avg >= 5.5)
+            {
+                grade = Diem.C;
+                gpa = 2.0;
+                xep_loai = "Trung binh";
+            }
+
+            else if(score_avg >= 4.0)
+            {
+                grade = Diem.D;
+                gpa = 1.0;
+                xep_loai = "Yeu";
+            }
+
+            else
+            {
+                grade = Diem.F;
+                gpa = 0.0;
+                xep_loai = "Kem (Truot)";
+            }
+
+            Console.WriteLine($"Diem TB Thang 10: {score_avg:F2}");
+            Console.WriteLine($"Diem Chu Quy Doi: {grade}");
+            Console.WriteLine($"Diem GPA Thang 4: {gpa:F1}");
+            Console.WriteLine($"Xep Loai Hoc Luc: {xep_loai}");
         }
     }
 }
