@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 
 namespace NgocHan_CSLT.Session03
@@ -11,7 +12,8 @@ namespace NgocHan_CSLT.Session03
         {
             btvn01();
             btvn02();
-            btvn03();        
+            btvn03();
+            btvn04();
             
         }
 
@@ -35,7 +37,7 @@ namespace NgocHan_CSLT.Session03
                 }
                 else
                 {
-                    Console.Write("Gia ve cua ban la 100.000VND");
+                    Console.WriteLine("Gia ve cua ban la 100.000VND");
                 }
             }
 
@@ -96,8 +98,52 @@ namespace NgocHan_CSLT.Session03
                 Console.WriteLine("[Thong bao]: Giao dich thanh cong. So du con lai: " + so_tien_con_lai + " VND");
             }  
             
+        }
+        static void btvn04()
+        {
+            while (true)
+            {
+                Console.WriteLine("Menu phim bam tuong tac voi tong dai ngan hang");
+                Console.WriteLine("0");
+                Console.WriteLine("1");
+                Console.WriteLine("2");
+                Console.WriteLine("3");
+                Console.WriteLine("4");
 
+                int choice = Convert.ToInt32(Console.ReadLine());
 
+                if (choice == 0)
+                {
+                    continue;                
+                }    
+
+                switch (choice)
+                {
+                    
+                    case 1:
+                        choice = 1;
+                        Console.WriteLine("[Tong dai]: Yeu cau gap tong dai da duoc ghi nhan");
+                        break;
+                    case 2:
+                        choice = 2;
+                        Console.WriteLine("[Tong dai]: Yeu cau tra cuu so du tai khoan duoc ghi nhan");
+                        break;
+                    case 3: 
+                        choice = 3;
+                        Console.WriteLine("[Tong dai]: Yeu cau bao khoa the khan cap duoc ghi nhan");
+                        break;
+                    case 4:
+                        choice = 4;
+                        Console.WriteLine("[Tong dai]: Yeu cau tra cuu ty gia ngoai te duoc ghi nhan");
+                        break;
+                    default:
+                        Console.WriteLine("Lua chon khong hop le. Vui long thu lai");
+                        break;
+                }
+
+                break;
+            }
+            
         }
     }
 }
