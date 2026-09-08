@@ -11,6 +11,7 @@ namespace NgocHan_CSLT.Session03
         {
             btvn01();
             btvn02();
+            btvn03();
             
         }
 
@@ -67,6 +68,31 @@ namespace NgocHan_CSLT.Session03
                     Console.WriteLine("[Thong bao]:Chi co quyen xem thong tin cong khai");
                     break;
             }
+
+        }
+        static void btvn03()
+        {
+            Console.Write("Nhap so du tai khoan (VND): ");
+            decimal so_du = Convert.ToDecimal(Console.ReadLine());
+            Console.Write("Nhap so tien muon rut (VND): ");
+            decimal so_tien = Convert.ToDecimal(Console.ReadLine());
+
+            if (so_tien < 0)
+            {
+                Console.WriteLine("[Thong bao]: So tien rut khong hop le");
+            }
+            else if (so_tien > so_du)
+            {
+                Console.WriteLine("[Thong bao]: So du khong du de thuc hien giao dich");
+            }
+            else if (so_tien % so_du == 1)
+            {
+                Console.WriteLine("[Thong bao]: So tien rut phai la boi so cua 50.000VND");
+
+            }
+
+            decimal so_tien_con_lai = so_du - so_tien;
+            Console.WriteLine("[Thong bao]: Giao dich thanh cong. So du con lai: " + so_tien_con_lai + " VND");
 
         }
     }
