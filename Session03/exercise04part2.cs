@@ -11,7 +11,7 @@ namespace NgocHan_CSLT.Session03
         {
             btvn01();
             btvn02();
-            btvn03();
+            btvn03();        
             
         }
 
@@ -90,9 +90,13 @@ namespace NgocHan_CSLT.Session03
                 Console.WriteLine("[Thong bao]: So tien rut phai la boi so cua 50.000VND");
 
             }
+            else
+            {
+                decimal so_tien_con_lai = so_du - so_tien;
+                Console.WriteLine("[Thong bao]: Giao dich thanh cong. So du con lai: " + so_tien_con_lai + " VND");
+            }  
+            
 
-            decimal so_tien_con_lai = so_du - so_tien;
-            Console.WriteLine("[Thong bao]: Giao dich thanh cong. So du con lai: " + so_tien_con_lai + " VND");
 
         }
     }
