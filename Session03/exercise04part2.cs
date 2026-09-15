@@ -19,6 +19,7 @@ namespace NgocHan_CSLT.Session03
             btvn04();
             btvn05();
             btvn06();
+            btvn07();
 
         }
 
@@ -223,8 +224,36 @@ namespace NgocHan_CSLT.Session03
 
             }
         }
+        static void btvn07()
+        {
+            Console.Write("Can nang = ");
+            double can_nang = Convert.ToDouble(Console.ReadLine());
+
+            Console.Write("Chieu cao (X.XX) = ");
+            double chieu_cao = Convert.ToDouble(Console.ReadLine());
 
 
+            double Bmi = can_nang / (chieu_cao * chieu_cao);
+
+            if (Bmi < 18.5)
+            {
+                Console.WriteLine($"BMI: {Bmi:F2} - Danh gia:Gay - Nen bo sung dinh duong");
+
+            }
+            else if (18.5 <= Bmi && Bmi < 25)
+            {
+                Console.WriteLine($"BMI: {Bmi:F2} - Danh gia:Can doi - Tiep tuc duy tri");
+            }
+            else if (25 <= Bmi && Bmi < 30)
+            {
+                Console.WriteLine($"BMI: {Bmi:F2} - Danh gia:Thua can - Nen tang cuong luyen tap");
+            }
+            else
+            {
+                Console.WriteLine($"BMI: {Bmi:F2} - Danh gia: Beo phi - Can su tu van tu bac si");
+            }
+
+        }
     }
 
 }
