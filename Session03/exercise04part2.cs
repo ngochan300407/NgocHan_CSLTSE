@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
+using System.Globalization;
 using System.Reflection.Metadata.Ecma335;
+using System.Runtime.InteropServices;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace NgocHan_CSLT.Session03
@@ -14,6 +17,8 @@ namespace NgocHan_CSLT.Session03
             btvn02();
             btvn03();
             btvn04();
+            btvn05();
+           
             
         }
 
@@ -145,5 +150,43 @@ namespace NgocHan_CSLT.Session03
             }
             
         }
+        static void btvn05()
+        {
+            Console.WriteLine("So km: ");
+            decimal km = Convert.ToDecimal(Console.ReadLine());
+
+            decimal gia_tien = 0;
+            decimal khuyen_mai = 0;
+
+            if (km <= 1)
+            {
+                gia_tien = 15000 * km;
+
+            }
+            if(km >= 2 && km <= 10)
+            {
+                gia_tien = 15000 * 1 + (km - 1) * 12000;
+            }
+            if(km >= 11 && km <= 30)
+            {
+                gia_tien = 15000 * 1 + 9 * 12000 + (km - 10) * 10000;
+            }
+            else
+            {
+                gia_tien= (15000 * 1 + 9 * 12000 + 20 * 10000 + (km - 30) * 10000);
+                if(km > 30)
+                {
+                    khuyen_mai = gia_tien * 0.1m;
+                }
+            }
+            decimal thanh_tien = gia_tien - khuyen_mai;
+            
+            
+            Console.WriteLine($"Tong tien truoc giam: {gia_tien:N0} VND");
+            Console.WriteLine($"Khuyen mai 10% (neu co): {khuyen_mai:N0} VND");
+            Console.WriteLine($"Thanh tien: {thanh_tien:N0} VND");
+
+        }
+        
     }
 }
