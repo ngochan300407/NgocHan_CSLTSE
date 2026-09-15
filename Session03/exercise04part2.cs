@@ -22,6 +22,7 @@ namespace NgocHan_CSLT.Session03
             btvn07();
             btvn08();
             btvn09();
+            btvn10();
 
         }
 
@@ -324,6 +325,44 @@ namespace NgocHan_CSLT.Session03
             {
                 Console.WriteLine("Ket qua: Khong du dieu kien tren: Khong dat hoc bong");
             }
+        }
+        static void btvn10()
+        {
+            Console.Write("So tien = ");
+            decimal tien = Convert.ToDecimal(Console.ReadLine());
+
+            Console.WriteLine("Ma ngoai te: ");
+            Console.WriteLine("1 - USD");
+            Console.WriteLine("2 - EUR");
+            Console.WriteLine("3 - JPY");
+
+            int choice = Convert.ToInt32(Console.ReadLine());
+
+            decimal usd = 25400;
+            decimal eur = 27200;
+            decimal jpy = 165;
+            decimal tien_sau_qd = 0;
+
+            switch (choice)
+            {
+                case 1:
+                    choice = 1;
+                    tien_sau_qd = tien / usd;
+                    Console.WriteLine($"So tien sau quy doi: {tien_sau_qd:F2} USD");
+                    break;
+                case 2:
+                    choice = 2;
+                    tien_sau_qd = tien / eur;
+                    Console.WriteLine($"So tien sau quy doi: {tien_sau_qd:F2} EUR");
+                    break;
+                case 3:
+                    choice = 3;
+                    tien_sau_qd = tien / jpy;
+                    Console.WriteLine($"So tien sau quy doi: {tien_sau_qd:F2} JPY");
+                    break;
+
+            }
+
         }
     }
 
