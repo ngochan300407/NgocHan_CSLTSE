@@ -20,6 +20,7 @@ namespace NgocHan_CSLT.Session03
             btvn05();
             btvn06();
             btvn07();
+            btvn08();
 
         }
 
@@ -251,6 +252,46 @@ namespace NgocHan_CSLT.Session03
             else
             {
                 Console.WriteLine($"BMI: {Bmi:F2} - Danh gia: Beo phi - Can su tu van tu bac si");
+            }
+
+        }
+        static void btvn08()
+        {
+            Console.WriteLine("Loai xe: ");
+            Console.WriteLine("1 - Bike");
+            Console.WriteLine("2 - Car");
+            int choice = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Thoi gian: ");
+            Console.WriteLine("1 - Ban ngay");
+            Console.WriteLine("2 - Ban dem");
+
+            int tg = Convert.ToInt32(Console.ReadLine());
+
+            switch (choice)
+            {
+                case 1:
+                    choice = 1;
+                    if (tg == 1)
+                    {
+                        Console.WriteLine($"Phi gui xe May (Ban Ngay): 5,000 VND");
+                    }
+                    else if (tg == 2)
+                    {
+                        Console.WriteLine($"Phi gui xe May (Ban Dem): 10,000 VND");
+                    }
+                    break;
+                case 2:
+                    choice = 2;
+                    if (tg == 1)
+                    {
+                        Console.WriteLine("Phi gui xe O to (Ban Ngay): 30,000 VND");
+                    }
+                    else if (tg == 2)
+                    {
+                        Console.WriteLine("Phi gui xe O to (Ban Dem): 60,000 VND");
+                    }
+                    break;
             }
 
         }
