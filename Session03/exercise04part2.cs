@@ -21,6 +21,7 @@ namespace NgocHan_CSLT.Session03
             btvn06();
             btvn07();
             btvn08();
+            btvn09();
 
         }
 
@@ -294,6 +295,35 @@ namespace NgocHan_CSLT.Session03
                     break;
             }
 
+        }
+        static void btvn09()
+        {
+            Console.Write("GPA= ");
+            double gpa = Convert.ToDouble(Console.ReadLine());
+
+            Console.Write("DRL= ");
+            double drl = Convert.ToDouble(Console.ReadLine());
+
+            if (gpa >= 3.6 && drl >= 90)
+            {
+                Console.WriteLine("Hoc bong Xuat Sac (Muc 100%)");
+
+            }
+            else if (gpa >= 3.2 && drl >= 80)
+            {
+                if (gpa >= 3.6 && drl >= 80)
+                {
+                    Console.WriteLine("Hoc bong Kha/Gioi (Muc 50%) - Do DRL < 90");
+                }
+                else if (gpa >= 3.2 && drl >= 90)
+                {
+                    Console.WriteLine("Hoc bong Kha/Gioi (Muc 50%) - Do GPA < 3.6");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Ket qua: Khong du dieu kien tren: Khong dat hoc bong");
+            }
         }
     }
 
