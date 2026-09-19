@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using NgocHan_CSLT.Bai_tap_buoi_5___6;
 
 namespace NgocHan_CSLT.Bai_tap_3___4
 {
@@ -19,6 +20,7 @@ namespace NgocHan_CSLT.Bai_tap_3___4
 "
 );
             guess_number_game();
+            ex06();
         }
         public static void guess_number_game()
         {
@@ -178,6 +180,49 @@ namespace NgocHan_CSLT.Bai_tap_3___4
             Console.WriteLine($"Tổng số lần thắng: {soLanThang}"); 
             Console.WriteLine($"Tổng số lần thua: {soLanThua}"); 
             Console.WriteLine($"Số tiền còn lại: {tien} đồng");
+        }
+
+        static void ex06()
+        {
+            int n;
+
+            do
+            {
+                Console.Write("Nhập n: ");
+
+                bool ok = int.TryParse(Console.ReadLine(), out n);
+
+                if (ok && n > 0)
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Vui lòng nhập n là số nguyên dương.");
+                }
+
+            } while (true);
+
+            double tong = 0;
+
+            Console.Write("Chuỗi: ");
+
+            for (int i = 1; i <= n; i++)
+            {
+                tong += 1.0 / i;
+
+                if (i == n)
+                {
+                    Console.Write($"1/{i}");
+                }
+                else
+                {
+                    Console.Write($"1/{i} + ");
+                }
+            }
+
+            Console.WriteLine();
+            Console.WriteLine($"Tổng = {tong:F4}");
         }
     }
 }
