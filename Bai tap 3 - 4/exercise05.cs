@@ -21,6 +21,7 @@ namespace NgocHan_CSLT.Bai_tap_3___4
 );
             guess_number_game();
             ex06();
+            ex07();
         }
         public static void guess_number_game()
         {
@@ -223,6 +224,78 @@ namespace NgocHan_CSLT.Bai_tap_3___4
 
             Console.WriteLine();
             Console.WriteLine($"Tổng = {tong:F4}");
+        }
+
+        static void ex07()
+        {
+            int start;
+            int end;
+
+            do
+            {
+                Console.Write("Nhập số bắt đầu: ");
+
+                bool ok = int.TryParse(
+                    Console.ReadLine(),
+                    out start
+                );
+
+                if (ok && start > 0)
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine(
+                        "Vui lòng nhập số nguyên dương."
+                    );
+                }
+
+            } while (true);
+
+            do
+            {
+                Console.Write("Nhập số kết thúc: ");
+
+                bool ok = int.TryParse(
+                    Console.ReadLine(),
+                    out end
+                );
+
+                if (ok && end >= start)
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine(
+                        "Số kết thúc phải lớn hơn hoặc bằng số bắt đầu."
+                    );
+                }
+
+            } while (true);
+
+            Console.WriteLine(
+                $"\nCác số hoàn hảo từ {start} đến {end}:"
+            );
+
+            for (int n = start; n <= end; n++)
+            {
+                int tong = 0;
+
+                for (int i = 1; i <= n / 2; i++)
+                {
+                    if (n % i == 0)
+                    {
+                        tong += i;
+                    }
+                }
+
+                if (tong == n)
+                {
+                    Console.WriteLine(n);
+                }
+            }
         }
     }
 }
