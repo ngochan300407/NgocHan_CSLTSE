@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace NgocHan_CSLT.Session03
+namespace NgocHan_CSLT.Bai_tap_3_4
 {
     internal class exercise04part2
     {
