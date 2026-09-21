@@ -12,6 +12,7 @@ namespace NgocHan_CSLT.Bai_tap_buoi_5___6
         {
             ex01();
             ex02();
+            ex03();
         }
 
         static void ex01()
@@ -39,6 +40,31 @@ namespace NgocHan_CSLT.Bai_tap_buoi_5___6
         {
             return n % 2 == 0;
         }
+
+        static void ex03()
+        {
+            Console.Write("So dau tien ");
+            int a = Convert.ToInt32(Console.ReadLine());
+             
+            Console.Write("So thu hai ");
+            int b = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("So thu ba ");
+            int c = Convert.ToInt32(Console.ReadLine());
+
+            int ketqua = Max(a, b, c);
+
+            Console.WriteLine($"So lon nhat trong ba so la: {ketqua}");
+        }
+
+        static int Max(int a, int b, int c)
+        {
+           return Math.Max(Math.Max(a, b), c);
+            
+        }
+
+         
+
 
 
     }
