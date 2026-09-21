@@ -11,6 +11,7 @@ namespace NgocHan_CSLT.Bai_tap_buoi_5___6
         public static void Main()
         {
             ex01();
+            ex02();
         }
 
         static void ex01()
@@ -24,6 +25,22 @@ namespace NgocHan_CSLT.Bai_tap_buoi_5___6
         {
             return a + b;
         }
+
+        static void ex02()
+        {
+            Console.Write("Nhap so cua ban: ");
+            int so = Convert.ToInt32(Console.ReadLine());
+
+            bool  ketqua = kiemtra(so);
+            Console.WriteLine($"Ket qua la: {ketqua}");
+        }
+
+        static bool  kiemtra(int n)
+        {
+            return n % 2 == 0;
+        }
+
+
     }
 }
 
