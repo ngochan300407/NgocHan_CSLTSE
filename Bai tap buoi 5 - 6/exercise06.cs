@@ -13,6 +13,7 @@ namespace NgocHan_CSLT.Bai_tap_buoi_5___6
             ex01();
             ex02();
             ex03();
+            ex04();
         }
 
         static void ex01()
@@ -63,7 +64,28 @@ namespace NgocHan_CSLT.Bai_tap_buoi_5___6
             
         }
 
-         
+        static void ex04()
+        {
+            Console.Write("NHAP SO CUA BAN: ");
+            int n = Convert.ToInt32(Console.ReadLine());
+
+            long ketqua = Tinhgiaithua(n);
+
+            Console.WriteLine($"Giai thua cua {n} la {ketqua}");
+
+        }
+
+        static long Tinhgiaithua(int n)
+        {
+            long ketqua = 1;
+
+            for (int i = 1; i <= n; i++)
+            {
+                ketqua = ketqua * 1;
+            }
+
+            return ketqua;
+        }
 
 
 
