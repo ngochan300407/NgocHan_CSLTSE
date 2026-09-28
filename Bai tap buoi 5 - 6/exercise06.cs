@@ -17,6 +17,7 @@ namespace NgocHan_CSLT.Bai_tap_buoi_5___6
             ex04();
             ex05();
             ex06();
+            ex07();
         }
 
         static void ex01()
@@ -133,6 +134,28 @@ namespace NgocHan_CSLT.Bai_tap_buoi_5___6
                 }
             }
             return true;
+        }
+
+        static void ex07()
+        {
+            Console.WriteLine("Cau 7: ");
+            int so = Convert.ToInt32(Console.ReadLine());
+
+            Infibonacca(so);
+        }
+
+        static void Infibonacca(int n)
+        {
+            int a = 0;
+            int b = 1;
+            for(int i = 0; i < n; i++)
+            {
+                Console.WriteLine(a + "");
+
+                int c = a + b;
+                a = b;
+                b = c;
+            }
         }
     
     }
