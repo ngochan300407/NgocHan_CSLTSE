@@ -15,6 +15,7 @@ namespace NgocHan_CSLT.Bai_tap_buoi_5___6
             ex02();
             ex03();
             ex04();
+            ex05();
         }
 
         static void ex01()
@@ -88,8 +89,24 @@ namespace NgocHan_CSLT.Bai_tap_buoi_5___6
             return ketqua;
         }
 
-        
+        static void  ex05()
+        {
+            Console.WriteLine("Câu 5: ");
+            string? chuoi = Convert.ToString(Console.ReadLine());
 
+            string ketqua = Daonguocchuoi(chuoi);
+            Console.WriteLine($"Dao nguoc cua {chuoi} la {ketqua}");
+        }
+
+        static string Daonguocchuoi(string input)
+        {
+            char[] char_array = input.ToCharArray();
+
+            Array.Reverse(char_array);
+
+            return new string(char_array);
+
+        }
     }
 }
 
