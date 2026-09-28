@@ -16,6 +16,7 @@ namespace NgocHan_CSLT.Bai_tap_buoi_5___6
             ex03();
             ex04();
             ex05();
+            ex06();
         }
 
         static void ex01()
@@ -107,6 +108,33 @@ namespace NgocHan_CSLT.Bai_tap_buoi_5___6
             return new string(char_array);
 
         }
+
+        static void ex06()
+        {
+            Console.WriteLine("Cau 6: ");
+            int nguyen_to = Convert.ToInt32(Console.ReadLine());
+
+            bool kqua = ktra(nguyen_to);
+            Console.WriteLine($"Ket qua la:{kqua}");
+        }
+
+        static bool ktra(int n)
+        {
+            if(n < 2)
+            {
+                return false;
+            }
+
+            for(int i = 2; i < n; i++)
+            {
+                if(n % i == 0)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+    
     }
 }
 
