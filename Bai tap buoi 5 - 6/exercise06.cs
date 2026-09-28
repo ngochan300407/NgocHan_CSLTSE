@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Channels;
+using NgocHan_CSLT.Bai_tap_3___4;
 using NgocHan_CSLT.Bai_tap_3_4;
 
 namespace NgocHan_CSLT.Bai_tap_buoi_5___6
@@ -87,7 +88,7 @@ namespace NgocHan_CSLT.Bai_tap_buoi_5___6
             return ketqua;
         }
 
-
+        
 
     }
 }

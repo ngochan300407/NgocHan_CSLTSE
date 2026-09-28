@@ -13,17 +13,21 @@ namespace NgocHan_CSLT.Bai_tap_3_4
     {
         public static void Min()
         {
-            btvn01();
-            btvn02();
-            btvn03();
-            btvn04();
-            btvn05();
-            btvn06();
-            btvn07();
-            btvn08();
-            btvn09();
-            btvn10();
-
+            //btvn01();
+            //btvn02();
+            //btvn03();
+            //btvn04();
+            //btvn05();
+            //btvn06();
+            //btvn07();
+            //btvn08();
+            //btvn09();
+            //btvn10();
+            //btvn11();
+            //btvn12();
+            //btvn13();
+            //btvn14();
+            btvn15();
         }
 
         static void btvn01()
@@ -364,6 +368,205 @@ namespace NgocHan_CSLT.Bai_tap_3_4
             }
 
         }
+
+        static void btvn11()
+        {
+            Console.Write("Nhap so kWh: ");
+            double kWh = Convert.ToDouble(Console.ReadLine());
+            double tien = 0;
+            string chi_tiet = "";
+
+            if(kWh <= 50)
+            {
+                tien = kWh * 1806;
+                chi_tiet = $"{kWh} * 1806 = {kWh * 1806})";
+            }
+
+            else if(51 <= kWh && kWh <= 100)
+            {
+                tien = 50 * 1806 + (kWh - 50) * 1866;
+                chi_tiet = $"50 * 1806 + ({kWh} - 50) * 1866 = {50 * 1086} + {(kWh - 50) * 1866})";
+                ;
+            }
+
+            else
+            {
+                tien = 50 * 1806 + 50 * 1866 + (kWh - 100) * 2167;
+                chi_tiet = $"50 * 1806 + 50 * 1866 + ({kWh - 100}) * 2167 = {50 * 1806} + {50 * 1866} + {(kWh - 100) * 2167})";
+            }
+
+            Console.WriteLine($"So kWh = {kWh}");
+            Console.WriteLine($"Tong tien dien phai thanh toan là {tien}");
+            Console.WriteLine($"(Chi tiet: {chi_tiet})");
+        }
+
+        static void btvn12()
+        {
+            Console.Write("Nhap so ngay tre han: ");
+            double so_ngay = Convert.ToDouble(Console.ReadLine());
+
+            double tien_phat = 0;
+            string canh_bao = "";
+
+            if(1 <= so_ngay && so_ngay <= 3)
+            {
+                tien_phat = 5000 * so_ngay; 
+            }
+
+            else if (4 <= so_ngay && so_ngay <= 7)
+            {
+                tien_phat = so_ngay * 10000;
+            }
+
+            else
+            {
+                tien_phat = so_ngay * 20000;
+                canh_bao = "Tai khoan thu vien cua ban bi tam khoa 30 ngay";
+            }
+
+            Console.WriteLine($"Tien phat: {tien_phat} VND");
+            Console.WriteLine($"Cảnh báo: {canh_bao}");
+
+        }
+
+        static void btvn13()
+        {
+            Console.WriteLine("Nhap luong cua ban: ");
+            double luong = Convert.ToDouble(Console.ReadLine());
+
+            Console.WriteLine("KPI cua ban la (%): ");
+            double kpi = Convert.ToDouble(Console.ReadLine());
+
+            double tien_thuong = 0;
+            string danh_gia = "";
+
+            if(kpi < 80)
+            {
+                tien_thuong = 0;
+                danh_gia = "no comment";
+            }
+
+            else if(80 <= kpi && kpi < 100)
+            {
+                tien_thuong = 0.5 * luong;
+                danh_gia = "xin chuc mung";
+            }
+
+            else if(100 <= kpi && kpi <= 120)
+            {
+                tien_thuong = 1 * luong;
+                danh_gia = "ban dang lam tot";
+            }
+
+            else
+            {
+                tien_thuong = 1.5 * luong;
+                danh_gia = "ban dang lam rat tot";
+            }
+
+            Console.WriteLine($"Danh gia: {danh_gia}. Tien thuong Tet: {tien_thuong} VND");
+        }
+
+        static void btvn14()
+        {
+            Console.Write("Tong gia tri don hang = ");
+            double don_hang = Convert.ToDouble(Console.ReadLine());
+
+            Console.WriteLine("Hãy chọn voucher: ");
+            Console.WriteLine(" 1 - WELCOME10");
+            Console.WriteLine(" 2 - SUPERDEAL");
+            Console.WriteLine(" 3 - FREESHIP");
+
+            int choice = Convert.ToInt32(Console.ReadLine());
+            string ma = "";
+            double giam_gia = 0;
+
+
+            switch (choice)
+            {
+                case 1:
+                    choice = 1;
+                    giam_gia = 0.1 * don_hang;
+                    ma = "WELOME10";
+                    break;
+                case 2:
+                    choice = 2;
+                    giam_gia = 0.2 * don_hang;
+                    ma = "SUPERDEAL";
+                    if (giam_gia > 100000)
+                    {
+                        giam_gia = 100000;
+                    }
+                    break;
+
+                case 3:
+                    choice = 3;
+                    giam_gia = don_hang - 30000;
+                    ma = "FREESHIP";
+                    break;
+                         
+            }
+            double tong_tien = don_hang - giam_gia;
+
+            Console.WriteLine($"Gia tri don hang cua ban = {don_hang} VND | Mã giảm giá bạn chọn = {ma}");
+            Console.WriteLine($"Duoc giam: {giam_gia} VND. So tien can thanh toan: {tong_tien} VND");
+
+        }
+
+        static void btvn15()
+        {
+            Console.WriteLine("Chon ma khu vuc cua ban: ");
+            Console.WriteLine(" 1 - NOI_THANH");
+            Console.WriteLine(" 2 - NGOAI_THANH");
+
+            int choice = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Trong luong = ");
+            double trong_luong = Convert.ToDouble(Console.ReadLine());
+
+            double gia_tien = 0;
+
+            switch (choice)
+            {
+                case 1:
+                    choice = 1;
+                    for (int i = 1; i <= trong_luong; i++)
+                    {
+                        if (trong_luong <= 3)
+                        {
+                            gia_tien = 20000;
+                        }
+                        else
+                        {
+                            gia_tien = (trong_luong - 1) * 5000 + 20000;
+                        }
+                    }
+                    
+                    break;
+
+                case 2:
+                    choice = 2;
+                    for (int i = 1; i <= trong_luong; i++)
+                    {
+                        if (trong_luong <= 3)
+                        {
+                            gia_tien = 35000;
+                        }
+
+                        else
+                        {
+                            gia_tien = (trong_luong - 1) * 10000 + 35000;
+                        }
+                    }
+                    break;
+
+            }
+
+            Console.WriteLine($"Phi van chuyen = {gia_tien} VND");
+
+
+        }
+
     }
 
 }
